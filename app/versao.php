@@ -1,7 +1,9 @@
 <?php
 // helio 26012023 18:10
 
-include "app/conexao.php";
+// NOVA VERSAO 
+include  __DIR__ . "/../conexao.php";
+//include "app/conexao.php";
 
 if ($versao==""){$versao="1";}
 
