@@ -1,6 +1,6 @@
 <?php
 // gabriel 21072023
-include_once __DIR__ . "/../../conexao.php";
+
 require_once ROOT . "/vendor/autoload.php";
 
 $google2fa = new \PragmaRX\Google2FA\Google2FA();
@@ -23,6 +23,7 @@ while ($row = mysqli_fetch_array($buscar, MYSQLI_ASSOC)) {
       $row['senhaCorreta'] = false;
     }
   }
+  unset($row['secret']);
   array_push($usuarios, $row);
   $rows = $rows + 1;
 }

@@ -10,16 +10,12 @@ if ($token == "") {
 $usuarios = verificaToken($user, $token);
 
 if ($user == $usuarios['idUsuario']) {
-    if ($usuarios['secret'] === null) {
-        $mensagem = "token não cadastrado!";
+
+    if ($usuarios['senhaCorreta'] == false) {
+        $mensagem = "token não cadastrado ou incorreto!";
         header('Location: teste_token.php?mensagem=' . urlencode($mensagem));
     } else {
-        if ($usuarios['senhaCorreta'] == false) {
-            $mensagem = "token incorreto!";
-            header('Location: teste_token.php?mensagem=' . urlencode($mensagem));
-        } else {
-            header('Location: autenticado.php?idUsuario=' . urlencode($usuarios['idUsuario']));
-        }
+        header('Location: autenticado.php?idUsuario=' . urlencode($usuarios['idUsuario']));
     }
 } else {
     $mensagem = "usuário não cadastrado/incorreto!";
