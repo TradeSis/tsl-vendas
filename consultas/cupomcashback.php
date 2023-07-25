@@ -41,7 +41,9 @@ $cupons = $cupomcashback["cupom"];
                 <div class="row">
                     <div class="col">
                         <label>Código Cliente</label>
-                        <input type="text" class="form-control" value=" <?php echo $cliente['codigoCliente'] ?> - <?php echo $cliente['nomeCliente'] ?>" readonly>
+                        <input type="text" class="form-control"
+                            value=" <?php echo $cliente['codigoCliente'] ?> - <?php echo $cliente['nomeCliente'] ?>"
+                            readonly>
 
                     </div>
                     <div class="col">
@@ -66,13 +68,31 @@ $cupons = $cupomcashback["cupom"];
                         </thead>
                         <?php foreach ($cupons as $cupom) { ?>
                             <tr>
-                                <td class="text-center"><?php echo $cupom['codigoCliente'] ?></td>
-                                <td class="text-center"><?php echo $cupom['idCupom'] ?></td>
-                                <td class="text-center"><?php echo date('d/m/Y', strtotime($cupom['dataGeracao'])) ?></td>
-                                <td class="text-center"><?php echo date('d/m/Y', strtotime($cupom['dataValidade'])) ?></td>
-                                <td class="text-center"><?php echo number_format($cupom['valorCupom'], 2, ',', '.') ?></td>
-                                <td class="text-center"><?php echo $cupom['percCupom'] ?>%</td>
-                                <td class="text-center"><?php echo date('d/m/Y', strtotime($cupom['dataUtilizacao'])) ?></td>
+                                <td class="text-center">
+                                    <?php echo $cupom['codigoCliente'] ?>
+                                </td>
+                                <td class="text-center">
+                                    <?php echo $cupom['idCupom'] ?>
+                                </td>
+                                <td class="text-center">
+                                    <?php echo date('d/m/Y', strtotime($cupom['dataGeracao'])) ?>
+                                </td>
+                                <td class="text-center">
+                                    <?php echo date('d/m/Y', strtotime($cupom['dataValidade'])) ?>
+                                </td>
+                                <td class="text-center">
+                                    <?php
+                                    echo number_format($cupom['valorCupom'], 2, ',', '.')
+                                        ?>
+                                </td>
+                                <td class="text-center">
+                                    <?php echo $cupom['percCupom'] ?>%
+                                </td>
+                                <td class="text-center">
+                                    <?php if ($cupom['dataUtilizacao'] !== null) {
+                                        echo date('d/m/Y', strtotime($cupom['dataUtilizacao']));
+                                    } ?>
+                                </td>
                             </tr>
                         <?php } ?>
 
