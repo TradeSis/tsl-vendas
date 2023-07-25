@@ -81,15 +81,17 @@ $cupons = $cupomcashback["cupom"];
                                     <?php echo date('d/m/Y', strtotime($cupom['dataValidade'])) ?>
                                 </td>
                                 <td class="text-center">
-                                    <?php if ($cupom['valorCupom'] !== null) {
-                                        echo number_format($cupom['valorCupom'], 2, ',', '.');
-                                    } ?>
+                                    <?php
+                                    echo number_format($cupom['valorCupom'], 2, ',', '.')
+                                        ?>
                                 </td>
                                 <td class="text-center">
                                     <?php echo $cupom['percCupom'] ?>%
                                 </td>
                                 <td class="text-center">
-                                    <?php echo date('d/m/Y', strtotime($cupom['dataUtilizacao'])) ?>
+                                    <?php if ($cupom['dataUtilizacao'] !== null) {
+                                        echo date('d/m/Y', strtotime($cupom['dataUtilizacao']));
+                                    } ?>
                                 </td>
                             </tr>
                         <?php } ?>
