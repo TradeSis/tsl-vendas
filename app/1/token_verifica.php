@@ -1,11 +1,11 @@
 <?php
 // gabriel 21072023
-/*$log_datahora_ini = date("dmYHis");
+$log_datahora_ini = date("dmYHis");
 $acao = "verificatoken";
 $arqlog = defineCaminhoLog() . "apilebes_" . $acao . "_" . date("dmY") . ".log";
 $arquivo = fopen($arqlog, "a");
 $identificacao = $log_datahora_ini . $acao;
-fwrite($arquivo, $identificacao . "-ENTRADA->" . json_encode($jsonEntrada) . "\n"); */
+fwrite($arquivo, $identificacao . "-ENTRADA->" . json_encode($jsonEntrada) . "\n"); 
 
 require_once ROOT . "/vendor/autoload.php";
 
