@@ -13,12 +13,15 @@ function buscaToken($idUsuario=null)
 	$usuario = chamaAPI(null, '/vendas/token', json_encode($apiEntrada), 'GET');
 	return $usuario;
 }
-function verificaToken($idUsuario=null,$token=null)
+function verificaToken($idUsuario,$token)
 {
 	
 	$usuario = array();
-	$apiEntrada = array(
+	$token = array(
 		'idUsuario' => $idUsuario,
+		'token' => $token
+	); 
+	$apiEntrada = array(
 		'token' => $token
 	);
 	$usuario = chamaAPI(null, '/vendas/token/verifica', json_encode($apiEntrada), 'GET');
