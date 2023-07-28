@@ -3,9 +3,9 @@
 
 include_once('../conexao.php');
 
-function buscaToken($idUsuario=null)
+function buscaToken($idUsuario = null)
 {
-	
+
 	$usuario = array();
 	$apiEntrada = array(
 		'idUsuario' => $idUsuario
@@ -13,18 +13,19 @@ function buscaToken($idUsuario=null)
 	$usuario = chamaAPI(null, '/vendas/token', json_encode($apiEntrada), 'GET');
 	return $usuario;
 }
-function verificaToken($idUsuario,$token)
+function verificaToken($idUsuario, $vtoken)
 {
-	
+
 	$usuario = array();
 	$token = array(
 		'idUsuario' => $idUsuario,
-		'token' => $token
-	); 
+		'token' => $vtoken
+	);
 	$apiEntrada = array(
-		'token' => $token
+		'token' => array($token)
 	);
 	$usuario = chamaAPI(null, '/vendas/token/verifica', json_encode($apiEntrada), 'GET');
+
 	return $usuario;
 }
 
@@ -33,43 +34,43 @@ if (isset($_GET['operacao'])) {
 
 	$operacao = $_GET['operacao'];
 
-	if ($operacao=="inserir") {
+	if ($operacao == "inserir") {
 		$apiEntrada = array(
 			'idUsuario' => $_POST['idUsuario']
 		);
 		$usuario = chamaAPI(null, '/vendas/token', json_encode($apiEntrada), 'PUT');
-        header('Location: ../apoio/token.php');	
+		header('Location: ../apoio/token.php');
 	}
 
-	if ($operacao=="alterar") {
+	if ($operacao == "alterar") {
 		$apiEntrada = array(
 			'idUsuario' => $_POST['idUsuario']
 		);
 		$usuario = chamaAPI(null, '/vendas/token', json_encode($apiEntrada), 'POST');
-        header('Location: ../apoio/token.php');	
+		header('Location: ../apoio/token.php');
 	}
-	
-	if ($operacao=="excluir") {
+
+	if ($operacao == "excluir") {
 		$apiEntrada = array(
 			'idUsuario' => $_POST['idUsuario']
 		);
 		$usuario = chamaAPI(null, '/vendas/token', json_encode($apiEntrada), 'DELETE');
-        header('Location: ../apoio/token.php');	
+		header('Location: ../apoio/token.php');
 	}
-    if ($operacao == "ativar") {
+	if ($operacao == "ativar") {
 		$apiEntrada = array(
 			'idUsuario' => $_POST['idUsuario'],
 			'secret' => $_POST['secret']
 		);
 		$usuario = chamaAPI(null, '/vendas/token/ativar', json_encode($apiEntrada), 'POST');
-	
+
 		header('Location: ../apoio/token.php');
 	}
 
 
 
-	
-	
+
+
 }
 
 ?>
