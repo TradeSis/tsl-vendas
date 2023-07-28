@@ -5,7 +5,7 @@ $acao = "verificatoken";
 $arqlog = defineCaminhoLog() . "apilebes_" . $acao . "_" . date("dmY") . ".log";
 $arquivo = fopen($arqlog, "a");
 $identificacao = $log_datahora_ini . $acao;
-fwrite($arquivo, $identificacao . "-ENTRADA->" . json_encode($jsonEntrada) . "\n"); 
+fwrite($arquivo, $identificacao . "-ENTRADA->" . json_encode($jsonEntrada) . "\n"."-SAIDA->" . json_encode($jsonSaida) . "\n"); 
 
 require_once ROOT . "/vendor/autoload.php";
 
