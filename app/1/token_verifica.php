@@ -5,7 +5,7 @@ $acao = "verificatoken";
 $arqlog = defineCaminhoLog() . "apilebes_" . $acao . "_" . date("dmY") . ".log";
 $arquivo = fopen($arqlog, "a");
 $identificacao = $log_datahora_ini . $acao;
-fwrite($arquivo, $identificacao . "-ENTRADA->" . json_encode($jsonEntrada) . "\n"."-SAIDA->" . json_encode($jsonSaida) . "\n"); 
+fwrite($arquivo, $identificacao . "-ENTRADA->" . json_encode($jsonEntrada) . "\n"); 
 
 require_once ROOT . "/vendor/autoload.php";
 
@@ -17,6 +17,7 @@ $usuarios = array();
 
 if (!isset($jsonEntrada["token"][0]["idUsuario"]) || !isset($jsonEntrada["token"][0]["token"])) {
   $jsonSaida = json_decode(json_encode(array("status" => 400, "retorno" => "Dados não informados")), true);
+
 } else {
   $idUsuario = $jsonEntrada["token"][0]["idUsuario"];
   $sql = "SELECT * FROM token WHERE token.idUsuario = '" . $idUsuario . "'";
@@ -48,4 +49,6 @@ if (!isset($jsonEntrada["token"][0]["idUsuario"]) || !isset($jsonEntrada["token"
     $jsonSaida = $usuarios;
   }
 }
+fwrite($arquivo, $identificacao . "-SAIDA->" . json_encode($jsonSaida) . "\n"); 
+fclose($arquivo);
 ?>
