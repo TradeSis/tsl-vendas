@@ -16,7 +16,7 @@ $conexao = conectaMysql();
 $usuarios = array();
 
 if (!isset($jsonEntrada["token"][0]["idUsuario"]) || !isset($jsonEntrada["token"][0]["token"])) {
-  $jsonSaida = json_decode(json_encode(array("status" => 400, "retorno" => "Dados não informados")), true);
+  $jsonSaida = json_decode(json_encode(array("status" => 400, "retorno" => "Dados nao informados")), true);
 
 } else {
   $idUsuario = $jsonEntrada["token"][0]["idUsuario"];
@@ -24,7 +24,7 @@ if (!isset($jsonEntrada["token"][0]["idUsuario"]) || !isset($jsonEntrada["token"
   $buscar = mysqli_query($conexao, $sql);
 
   if (mysqli_num_rows($buscar) === 0) {
-    $jsonSaida = json_decode(json_encode(array("status" => 401, "retorno" => "Usuário não Cadastrado")), true);
+    $jsonSaida = json_decode(json_encode(array("status" => 401, "retorno" => "Usuario nao Cadastrado")), true);
   } else {
     $rows = 0; 
     while ($row = mysqli_fetch_array($buscar, MYSQLI_ASSOC)) {

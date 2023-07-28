@@ -21,10 +21,7 @@ if (isset($usuarios['senhaCorreta'])) {
         header('Location: autenticado.php?idUsuario=' . urlencode($usuarios['idUsuario']));
     }
 } else {
-    echo json_encode($user);
-    echo json_encode($token);
-    echo json_encode($usuarios);
     $mensagem = $usuarios['retorno'];
-    //header('Location: teste_token.php?mensagem=' . urlencode($mensagem));
+    header('Location: teste_token.php?mensagem=' . urlencode($mensagem));
 }
 ?>
