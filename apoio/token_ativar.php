@@ -15,7 +15,7 @@ $google2fa = new Google2FA();
 $secret = $google2fa->generateSecretKey(); /* gera secret */
 
 $text = $google2fa->getQRCodeUrl(
-    $_SERVER["HTTP_HOST"] . URLROOT,
+    "Token/tslebes",
     $idUsuario,
     $secret
 );

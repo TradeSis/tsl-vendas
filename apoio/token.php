@@ -36,8 +36,7 @@ $usuarios = buscaToken();
                         </td>
                         <td class="text-center">
                             <a class="btn btn-success btn-sm"
-                                href="token_ativar.php?idUsuario=<?php echo $usuario['idUsuario'] ?>" role="button">Novo
-                                Token</a>
+                                href="token_ativar.php?idUsuario=<?php echo $usuario['idUsuario'] ?>" role="button">Gerar QR-CODE</a>
                             <a class="btn btn-primary btn-sm"
                                 href="token_alterar.php?idUsuario=<?php echo $usuario['idUsuario'] ?>"
                                 role="button">Editar</a>
