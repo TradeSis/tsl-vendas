@@ -11,7 +11,10 @@ function buscaToken($idUsuario = null)
                 'idUsuario' => $idUsuario
         );
         $usuario = chamaAPI(null, '/vendas/token', json_encode($apiEntrada), 'GET');
-        return $usuario["usuarios"];
+        
+        // helio 020823 - compatibilidade progress
+        if (isset($idUsuario)) { return $usuario["usuarios"][0]; }
+         else                 { return $usuario["usuarios"]; }
 }
 function verificaToken($idUsuario, $vtoken)
 {
