@@ -6,12 +6,8 @@ $arqlog = defineCaminhoLog() . "apilebes_" . $acao . "_" . date("dmY") . ".log";
 $arquivo = fopen($arqlog, "a");
 $identificacao = $log_datahora_ini . $acao;
 fwrite($arquivo, $identificacao . "-ENTRADA->" . json_encode($jsonEntrada) . "\n"); 
-
 require_once ROOT . "/vendor/autoload.php";
-
 $google2fa = new \PragmaRX\Google2FA\Google2FA();
-
-
 $conexao = conectaMysql();
 $usuarios = array();
 
@@ -42,11 +38,11 @@ if (!isset($jsonEntrada["token"][0]["idUsuario"]) || !isset($jsonEntrada["token"
       $rows++; 
     }
 
-    if (isset($jsonEntrada["token"][0]["idUsuario"]) && $rows == 1) {
-      $usuarios = $usuarios[0];
-    }
+//    if (isset($jsonEntrada["token"][0]["idUsuario"]) && $rows == 1) {
+//      $usuarios = $usuarios[0];
+//    }
 
-    $jsonSaida = $usuarios;
+    $jsonSaida = array("usuario" => $usuarios);
   }
 }
 fwrite($arquivo, $identificacao . "-SAIDA->" . json_encode($jsonSaida) . "\n"); 
