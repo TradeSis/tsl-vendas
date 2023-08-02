@@ -11,7 +11,7 @@ function buscaToken($idUsuario = null)
                 'idUsuario' => $idUsuario
         );
         $usuario = chamaAPI(null, '/vendas/token', json_encode($apiEntrada), 'GET');
-        return $usuario;
+        return $usuario["usuarios"];
 }
 function verificaToken($idUsuario, $vtoken)
 {
