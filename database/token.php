@@ -28,8 +28,11 @@ function verificaToken($idUsuario, $vtoken)
                 'token' => array($token)
         );
         $usuario = chamaAPI(null, '/vendas/token/verifica', json_encode($apiEntrada), 'GET');
-
-        return $usuario["usuario"][0];
+        if (isset($usuarios['usuario'])) {
+                return $usuario["usuario"][0];
+        } else {
+                return $usuario;
+        }
 }
 
 
