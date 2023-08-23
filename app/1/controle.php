@@ -9,11 +9,7 @@
 //echo "parametro=".$parametro."\n";
 
 if ($metodo == "GET") {
-  if ($funcao == "token" && $parametro == "verifica") {
-    $funcao = "token/verifica";
-    $parametro = null;
-  }
-
+  
   switch ($funcao) {
     case "produtos":
       include 'produtos.php';
@@ -39,9 +35,6 @@ if ($metodo == "GET") {
       include 'token.php';
       break;
 
-    case "token/verifica":
-      include 'token_verifica.php';
-      break;
 
     default:
       $jsonSaida = json_decode(
@@ -83,6 +76,10 @@ if ($metodo == "POST") {
     $funcao = "token/ativar";
     $parametro = null;
   }
+  if ($funcao == "token" && $parametro == "verifica") {
+    $funcao = "token/verifica";
+    $parametro = null;
+  }
 
   switch ($funcao) {
 
@@ -93,6 +90,11 @@ if ($metodo == "POST") {
     case "token/ativar":
       include 'token_ativar.php';
       break;
+
+    case "token/verifica":
+      include 'token_verifica.php';
+      break;
+
 
     default:
       $jsonSaida = json_decode(
