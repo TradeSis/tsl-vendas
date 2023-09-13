@@ -25,12 +25,8 @@ $image_url = 'https://chart.googleapis.com/chart?cht=qr&chs=300x300&chl=' . $tex
 ?>
 
 <body>
-    <div class="container" style="margin-top:10px">
+    <div class="container" style="margin-top:50px">
 
-        <div class="col-sm mt-4" style="text-align:right">
-            <a href="token.php" role="button" class="btn btn-primary"><i
-                    class="bi bi-arrow-left-square"></i></i>&#32;Voltar</a>
-        </div>
         <div class="col-sm">
             <spam class="col titulo">Registre a autenticação em 2 fatores</spam>
         </div>
