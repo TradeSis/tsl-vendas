@@ -42,7 +42,7 @@ $nivelMenu = $nivelMenuLogin['nivelMenu'];
                         <a class="nav-link1 nav-link <?php if ($tab == "prevenda") {
                             echo " active ";
                         } ?>" href="?tab=prevenda"
-                            role="tab">Cupom Cashback</a>
+                            role="tab">Pré-Venda</a>
                     </li>
                 <?php }
                 if ($nivelMenu >= 1) { ?>
