@@ -9,7 +9,7 @@ fwrite($arquivo,$log_datahora_ini."$acao"."-ENTRADA->".json_encode($jsonEntrada)
 $conteudoEntrada = json_encode($jsonEntrada);
 
     $progr = new chamaprogress();
-    $retorno = $progr->executarprogress("app/1/cupomcashbackcliente",$conteudoEntrada);
+    $retorno = $progr->executarprogress("vendas/app/1/cupomcashbackcliente",$conteudoEntrada);
     fwrite($arquivo,$identificacao."-RETORNO->".$retorno."\n");
 
     $jsonSaida = json_decode($retorno,true);
