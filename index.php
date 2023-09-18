@@ -31,28 +31,28 @@ $nivelMenu = $nivelMenuLogin['nivelMenu'];
                     $tab = $_GET['tab'];
                 }
 
+                if ($tab == '') {
+                    $tab = 'desconto';
+                }
                 ?>
 
 
-                <?php if ($nivelMenu >= 1) {
-                    if ($tab == '') {
-                        $tab = 'prevenda';
-                    } ?>
+                <?php if ($nivelMenu == 5) { // SOMENTE TRADESIS, POIS ESTA EM DEV ?>
                     <li class="nav-item mr-1">
                         <a class="nav-link1 nav-link <?php if ($tab == "prevenda") {
                             echo " active ";
                         } ?>" href="?tab=prevenda"
                             role="tab">Pré-Venda</a>
                     </li>
-                <?php }
-                if ($nivelMenu >= 1) { ?>
+                <?php // SOMENTE TRADESIS, POIS ESTA EM DEV }
+                if ($nivelMenu == 5) { ?>
                     <li class="nav-item mr-1">
                         <a class="nav-link1 nav-link <?php if ($tab == "bonusclien") {
                             echo " active ";
                         } ?>" href="?tab=bonusclien"
                             role="tab">Bonus Cliente</a>
                     </li>
-                <?php }
+                    <?php }
                 if ($nivelMenu >= 1) { ?>
                     <li class="nav-item mr-1">
                         <a class="nav-link1 nav-link <?php if ($tab == "desconto") {
@@ -60,30 +60,30 @@ $nivelMenu = $nivelMenuLogin['nivelMenu'];
                         } ?>" href="?tab=desconto"
                             role="tab">Descontos</a>
                     </li>
-                <?php }
-                if ($nivelMenu >= 1) { ?>
+                <?php  }
+                if ($nivelMenu == 5) { // SOMENTE TRADESIS, POIS ESTA EM DEV ?>
                     <li class="nav-item mr-1">
                         <a class="nav-link1 nav-link <?php if ($tab == "produtodisp") {
                             echo " active ";
                         } ?>" href="?tab=produtodisp"
                             role="tab">Produto Disponível</a>
                     </li>
-                <?php } 
-                 if ($nivelMenu >= 1) { ?>
+                    <?php  } 
+                 if ($nivelMenu == 5) { // SOMENTE TRADESIS, POIS ESTA EM DEV ?>
                     <li class="nav-item mr-1">
                         <a class="nav-link1 nav-link <?php if ($tab == "cupomcashback") {
                             echo " active ";
                         } ?>" href="?tab=cupomcashback"
                             role="tab">Cupom Cashback</a>
                     </li>
-                <?php }
-                if ($nivelMenu >= 3) { ?>
+                    <?php  }
+                if ($nivelMenu >= 4) { ?>
                     <li class="nav-item mr-1">
-                        <a class="nav-link1 nav-link <?php if ($tab == "token") {
+                        <a class="nav-link1 nav-link <?php if ($tab == "apoio") {
                             echo " active ";
                         } ?>"
-                            href="?tab=token" role="tab" data-toggle="tooltip" data-placement="top"
-                            title="Token">Token</a>
+                            href="?tab=apoio" role="tab" data-toggle="tooltip" data-placement="top"
+                            title="Token">Apoio</a>
                     </li>
                 <?php } ?>
             </ul>
@@ -112,7 +112,7 @@ if ($tab == "produtodisp") {
 if ($tab == "cupomcashback") {
     $src = "consultas/cupomcashback_parametros.php";
 }
-if ($tab == "token") {
+if ($tab == "apoio") {
     $src = "apoio/";
     if (isset($_GET['stab'])) {
         $src = $src . "?stab=" . $_GET['stab'];
