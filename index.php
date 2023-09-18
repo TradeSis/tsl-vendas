@@ -44,7 +44,7 @@ $nivelMenu = $nivelMenuLogin['nivelMenu'];
                         } ?>" href="?tab=prevenda"
                             role="tab">Pré-Venda</a>
                     </li>
-                <?php // SOMENTE TRADESIS, POIS ESTA EM DEV }
+                <?php } // SOMENTE TRADESIS, POIS ESTA EM DEV 
                 if ($nivelMenu == 5) { ?>
                     <li class="nav-item mr-1">
                         <a class="nav-link1 nav-link <?php if ($tab == "bonusclien") {
