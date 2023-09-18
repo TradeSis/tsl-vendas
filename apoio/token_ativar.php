@@ -14,12 +14,10 @@ $google2fa = new Google2FA();
 
 $secret = $google2fa->generateSecretKey(); /* gera secret */
 $nomeToken = "Token/tslebes";
-if (URLROOT == "/tslebes" && $_SERVER['SERVER_ADDR'] == "10.145.0.60")
-{
+if (URLROOT == "/tslebes" && $_SERVER['SERVER_ADDR'] == "10.145.0.60") {
     $nomeToken = "Token(HML)/tslebes";
 }
-if (URLROOT == "/tslebes-dev" && $_SERVER['SERVER_ADDR'] == "10.145.0.60")
-{
+if (URLROOT == "/tslebes-dev" && $_SERVER['SERVER_ADDR'] == "10.145.0.60") {
     $nomeToken = "Token/tslebes-dev";
 }
 
@@ -33,21 +31,22 @@ $image_url = 'https://chart.googleapis.com/chart?cht=qr&chs=300x300&chl=' . $tex
 
 ?>
 
-<body>
-    <div class="container" style="margin-top:50px">
+<body class="bg-transparent">
+    <div class="container bg-white" style="margin-top:50px;width:600px;">
 
         <div class="col-sm">
             <spam class="col titulo">Registre a autenticação em 2 fatores</spam>
         </div>
-        <div class="container">
+        <div class="container-sm">
             <form action="../database/token.php?operacao=ativar" method="post">
                 <p style="text-align:center">
                     <?php echo '<img src="' . $image_url . '" />'; ?>
                 </p>
                 <input type="text" class="form-control" name="idUsuario" value="<?php echo $idUsuario ?>" hidden>
                 <input type="text" class="form-control" name="secret" value="<?php echo $secret ?>" hidden>
-                <hr>
-                <div style="text-align:right">
+
+                <h6 style="text-align:center;color:red;">Atenção: Não saia sem salvar!</h6>
+                <div class="card-footer" style="text-align:right">
                     <button type="submit" id="botao" class="btn btn-success"><i
                             class="bi bi-sd-card-fill"></i>&#32;Salvar</button>
                 </div>

@@ -36,12 +36,6 @@ include_once(__DIR__ . '/../head.php');
           } ?>"
             href="?tab=apoio&stab=token" role="tab" >Token</a>
         </li>
-        <li class="nav-item ">
-          <a class="nav-link <?php if ($stab == "testeToken") {
-            echo " active ";
-          } ?>"
-            href="?tab=apoio&stab=testeToken" role="tab" >Teste Token</a>
-        </li>
       </ul>
     </div>
     
@@ -52,10 +46,6 @@ include_once(__DIR__ . '/../head.php');
           if ($stab == "token") {
             $ssrc = "token.php";
           }
-          if ($stab == "testeToken") {
-            $ssrc = "teste_token.php";
-          }
-    
 
           if ($ssrc !== "") {
             //echo $ssrc;

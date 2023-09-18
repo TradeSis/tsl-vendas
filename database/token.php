@@ -11,10 +11,13 @@ function buscaToken($idUsuario = null)
                 'idUsuario' => $idUsuario
         );
         $usuario = chamaAPI(null, '/vendas/token', json_encode($apiEntrada), 'GET');
-        
+
         // helio 020823 - compatibilidade progress
-        if (isset($idUsuario)) { return $usuario["usuarios"][0]; }
-         else                 { return $usuario["usuarios"]; }
+        if (isset($idUsuario)) {
+                return $usuario["usuarios"][0];
+        } else {
+                return $usuario["usuarios"];
+        }
 }
 function verificaToken($idUsuario, $vtoken)
 {
@@ -46,15 +49,14 @@ if (isset($_GET['operacao'])) {
                         'idUsuario' => $_POST['idUsuario']
                 );
                 $usuario = chamaAPI(null, '/vendas/token', json_encode($apiEntrada), 'PUT');
-                header('Location: ../apoio/token.php');
         }
 
         if ($operacao == "alterar") {
                 $apiEntrada = array(
-                        'idUsuario' => $_POST['idUsuario']
+                        'idUsuario' => $_POST['idUsuario'],
+                        'novoUsuario' => $_POST['novoUsuario']
                 );
                 $usuario = chamaAPI(null, '/vendas/token', json_encode($apiEntrada), 'POST');
-                header('Location: ../apoio/token.php');
         }
 
         if ($operacao == "excluir") {
@@ -62,7 +64,6 @@ if (isset($_GET['operacao'])) {
                         'idUsuario' => $_POST['idUsuario']
                 );
                 $usuario = chamaAPI(null, '/vendas/token', json_encode($apiEntrada), 'DELETE');
-                header('Location: ../apoio/token.php');
         }
         if ($operacao == "ativar") {
                 $apiEntrada = array(
@@ -70,10 +71,19 @@ if (isset($_GET['operacao'])) {
                         'secret' => $_POST['secret']
                 );
                 $usuario = chamaAPI(null, '/vendas/token/ativar', json_encode($apiEntrada), 'POST');
-
-                header('Location: ../apoio/token.php');
+        }
+        if ($operacao == "buscar") {
+                $idUsuario = $_POST['idUsuario'];
+                $apiEntrada = array(
+                    'idUsuario' => $idUsuario
+                );
+                $usuario = chamaAPI(null, '/vendas/token', json_encode($apiEntrada), 'GET');
+                $response = array('idUsuario' => $usuario['usuarios']['idUsuario']);
+                echo json_encode($response);
+                return $response;
         }
 
+        header('Location: ../apoio/?tab=apoio&stab=token');
 
 
 

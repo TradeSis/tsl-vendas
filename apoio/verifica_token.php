@@ -16,12 +16,13 @@ $usuarios = verificaToken($user, $token);
 if (isset($usuarios['senhaCorreta'])) {
     if ($usuarios['senhaCorreta'] == false) {
         $mensagem = "Token não cadastrado ou incorreto!";
-        header('Location: teste_token.php?mensagem=' . urlencode($mensagem));
+        header('Location: ../apoio/?tab=apoio&stab=token&mensagem=' . urlencode($mensagem));
     } else {
-        header('Location: autenticado.php?idUsuario=' . urlencode($usuarios['idUsuario']));
+        $mensagem = "Usuário verificado com sucesso!";
+        header('Location: ../apoio/?tab=apoio&stab=token&autenticado=' . urlencode($mensagem));
     }
 } else {
     $mensagem = $usuarios['retorno'];
-    header('Location: teste_token.php?mensagem=' . urlencode($mensagem));
+    header('Location: ../apoio/?tab=apoio&stab=token&mensagem=' . urlencode($mensagem));
 }
 ?>
