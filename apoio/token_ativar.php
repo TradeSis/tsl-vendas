@@ -13,9 +13,18 @@ $usuarios = buscaToken($_GET['idUsuario']);
 $google2fa = new Google2FA();
 
 $secret = $google2fa->generateSecretKey(); /* gera secret */
+$nomeToken = "Token/tslebes";
+if (URLROOT == "/tslebes" && $_SERVER['SERVER_ADDR'] == "10.145.0.60")
+{
+    $nomeToken = "Token(HML)/tslebes";
+}
+if (URLROOT == "/tslebes-dev" && $_SERVER['SERVER_ADDR'] == "10.145.0.60")
+{
+    $nomeToken = "Token/tslebes-dev";
+}
 
 $text = $google2fa->getQRCodeUrl(
-    "Token/tslebes",
+    $nomeToken,
     $idUsuario,
     $secret
 );
