@@ -18,9 +18,9 @@ while ($row = mysqli_fetch_array($buscar, MYSQLI_ASSOC)) {
   $rows = $rows + 1;
 }
 
-//if (isset($jsonEntrada["idUsuario"]) && $rows==1) {
-//  $usuarios = $usuarios[0];
-//}
+if (isset($jsonEntrada["idUsuario"]) && $rows==1) {
+  $usuarios = $usuarios[0];
+}
 
 $jsonSaida = array("usuarios" => $usuarios);
 

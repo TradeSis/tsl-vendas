@@ -83,10 +83,6 @@ if ($metodo == "POST") {
 
   switch ($funcao) {
 
-    case "token":
-      include 'token_alterar.php';
-      break;
-
     case "token/ativar":
       include 'token_ativar.php';
       break;
