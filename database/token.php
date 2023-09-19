@@ -51,14 +51,6 @@ if (isset($_GET['operacao'])) {
                 $usuario = chamaAPI(null, '/vendas/token', json_encode($apiEntrada), 'PUT');
         }
 
-        if ($operacao == "alterar") {
-                $apiEntrada = array(
-                        'idUsuario' => $_POST['idUsuario'],
-                        'novoUsuario' => $_POST['novoUsuario']
-                );
-                $usuario = chamaAPI(null, '/vendas/token', json_encode($apiEntrada), 'POST');
-        }
-
         if ($operacao == "excluir") {
                 $apiEntrada = array(
                         'idUsuario' => $_POST['idUsuario']

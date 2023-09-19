@@ -44,8 +44,6 @@ $usuarios = buscaToken();
                             <a class="btn btn-success btn-sm"
                                 href="token_ativar.php?idUsuario=<?php echo $usuario['idUsuario'] ?>" role="button">Gerar
                                 QR-CODE</a>
-                            <button type="button" class="btn btn-warning btn-sm" data-toggle="modal"
-                                data-target="#alterarModal" data-idUsuario=<?php echo $usuario['idUsuario'] ?>>Alterar</button>
                             <button type="button" class="btn btn-danger btn-sm" data-toggle="modal"
                                 data-target="#excluirModal" data-idUsuario=<?php echo $usuario['idUsuario'] ?>>Excluir</button>
                         </td>
@@ -85,36 +83,6 @@ $usuarios = buscaToken();
         </div>
     </div>
 
-    <!--------- ALTERAR --------->
-    <div class="modal fade bd-example-modal-lg" id="alterarModal" tabindex="-1" role="dialog"
-        aria-labelledby="alterarModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-md">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Inserir Usuário</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="container" style="margin-top: 10px">
-                    <form method="post">
-                        <div class="col-md-12 form-group mb-4">
-                            <label class='control-label' for='inputNormal'></label>
-                            <div class="for-group">
-                                <input type="text" class="form-control" name="novoUsuario" id="vidUsuario">
-                                <input type="text" class="form-control" name="idUsuario" id="idUsuario" hidden>
-                            </div>
-                        </div>
-                        <div class="card-footer" style="text-align:right">
-                            <button type="submit" formaction="../database/token.php?operacao=alterar"
-                                class="btn  btn-success"><i class="bi bi-sd-card-fill"></i>&#32;Salvar</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <!--------- EXCLUIR --------->
     <div class="modal fade bd-example-modal-lg" id="excluirModal" tabindex="-1" role="dialog"
         aria-labelledby="excluirModalLabel" aria-hidden="true">
@@ -131,7 +99,7 @@ $usuarios = buscaToken();
                         <div class="col-md-12 form-group mb-4">
                             <label class='control-label' for='inputNormal'></label>
                             <div class="for-group">
-                                <input type="text" class="form-control" name="idUsuario" id="idUsuarioEXC">
+                                <input type="text" class="form-control" name="idUsuario" id="idUsuario">
                             </div>
                         </div>
                         <div class="card-footer" style="text-align:right">
@@ -199,7 +167,7 @@ $usuarios = buscaToken();
     </div>
 
     <script>
-        $(document).on('click', 'button[data-target="#alterarModal"]', function () {
+          $(document).on('click', 'button[data-target="#excluirModal"]', function () {
             var idUsuario = $(this).attr("data-idUsuario");
             $.ajax({
                 type: 'POST',
@@ -210,23 +178,6 @@ $usuarios = buscaToken();
                 },
                 success: function (data) {
                     $('#idUsuario').val(data.idUsuario);
-                    $('#vidUsuario').val(data.idUsuario);
-                    $('#alterarModal').modal('show');
-                }
-            });
-        });
-
-        $(document).on('click', 'button[data-target="#excluirModal"]', function () {
-            var idUsuario = $(this).attr("data-idUsuario");
-            $.ajax({
-                type: 'POST',
-                dataType: 'json',
-                url: '<?php echo URLROOT ?>/vendas/database/token.php?operacao=buscar',
-                data: {
-                    idUsuario: idUsuario
-                },
-                success: function (data) {
-                    $('#idUsuarioEXC').val(data.idUsuario);
                     $('#excluirModal').modal('show');
                 }
             });
