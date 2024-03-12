@@ -11,7 +11,8 @@ include_once '../head.php';
 <html lang="pt-BR">
 <head>
 
-    <?php include_once ROOT . "/vendor/head_css.php"; ?>
+    <?php //include_once ROOT . "/vendor/head_css.php"; ?>
+    <?php include_once "../../vendor/head_css.php"; ?>
 
 </head>
 
