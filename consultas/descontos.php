@@ -1,4 +1,5 @@
 <?php
+// lucas 120320204 id884 bootstrap local - alterado head
 // helio 17022023 cria array $descontos inicialmente vazio
 // helio 17022023 buscaDescontos estava sen envio do codigoLoja
 // helio 17022023 teste direto em $_POST['codigoLoja']
@@ -16,9 +17,13 @@ if (isset($_POST['codigoLoja'])) {
 
 ?>
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
+<head>
 
+    <?php include_once ROOT . "/vendor/head_css.php"; ?>
+
+</head>
 
 
 
@@ -76,6 +81,11 @@ if (isset($_POST['codigoLoja'])) {
         </div>
     </div>
 
+<!-- LOCAL PARA COLOCAR OS JS -->
+
+<?php include_once ROOT . "/vendor/footer_js.php"; ?>
+
+<!-- LOCAL PARA COLOCAR OS JS -FIM -->
 
 </body>
 

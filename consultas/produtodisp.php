@@ -1,4 +1,5 @@
 <?php
+// lucas 120320204 id884 bootstrap local - alterado head
 // gabriel 300323 11:24
 
 include_once '../head.php';
@@ -11,8 +12,13 @@ if (isset($_GET['parametros'])) {
 
 ?>
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
+<head>
+
+    <?php include_once ROOT . "/vendor/head_css.php"; ?>
+
+</head>
 
 
 <body class="bg-transparent">
@@ -58,6 +64,11 @@ if (isset($_GET['parametros'])) {
                 <hr>
             <?php } ?>
 
+<!-- LOCAL PARA COLOCAR OS JS -->
+
+<?php include_once ROOT . "/vendor/footer_js.php"; ?>
+
+<!-- LOCAL PARA COLOCAR OS JS -FIM -->
 
 </body>
 
