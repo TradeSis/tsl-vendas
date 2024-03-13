@@ -1,4 +1,5 @@
 <?php
+// lucas 120320204 id884 bootstrap local - alterado head
 // helio 17022023 (L 22) retirei do form os campos data inicial e final
 // helio 17022023 (L 22) retirei do form action o parametro parametros
 // gabriel 17022023 15:13
@@ -7,8 +8,13 @@ include_once '../head.php';
 
 
 ?>
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
+<head>
+
+    <?php include_once ROOT . "/vendor/head_css.php"; ?>
+
+</head>
 
 
 <body class="bg-transparent">
@@ -32,6 +38,13 @@ include_once '../head.php';
             </div>
         </div>
     </div>
+
+<!-- LOCAL PARA COLOCAR OS JS -->
+
+<?php include_once ROOT . "/vendor/footer_js.php"; ?>
+
+<!-- LOCAL PARA COLOCAR OS JS -FIM -->
+
 </body>
 
 </html>

@@ -1,4 +1,5 @@
 <?php
+// lucas 120320204 id884 bootstrap local - alterado head
 // helio 03022023 - ajustes iniciais
 
 include_once "../head.php";
@@ -11,6 +12,7 @@ include_once "../head.php";
     <head>
 
         <link rel="stylesheet" type="text/css" href="../css/etiqueta_normal_styles.css"/>
+        <?php include_once ROOT . "/vendor/head_css.php"; ?>
              
       <style rel="stylesheet" type="text/css">
        .estilo1{ background-color:#2FB12B; border: 0px solid;  }  
@@ -107,6 +109,12 @@ include_once "../head.php";
 
     </div>
 
+<!-- LOCAL PARA COLOCAR OS JS -->
+
+<?php include_once ROOT . "/vendor/footer_js.php"; ?>
+    
 <script type="text/javascript" src="prevenda.js"></script>
+
+<!-- LOCAL PARA COLOCAR OS JS -FIM -->
 </body>
 </html>
