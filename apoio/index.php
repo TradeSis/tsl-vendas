@@ -1,7 +1,17 @@
 <?php
+// lucas 120320204 id884 bootstrap local - alterado head
+
 include_once(__DIR__ . '/../head.php');
 ?>
 
+
+<!doctype html>
+<html lang="pt-BR">
+<head>
+
+    <?php include_once ROOT . "/vendor/head_css.php"; ?>
+
+</head>
 <style>
 
   .nav-link.active:any-link{
@@ -60,3 +70,9 @@ include_once(__DIR__ . '/../head.php');
 
 
 </div>
+
+<!-- LOCAL PARA COLOCAR OS JS -->
+
+<?php include_once ROOT . "/vendor/footer_js.php"; ?>
+
+<!-- LOCAL PARA COLOCAR OS JS -FIM -->

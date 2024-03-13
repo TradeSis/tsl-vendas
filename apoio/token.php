@@ -1,4 +1,5 @@
 <?php
+// lucas 120320204 id884 bootstrap local - alterado head
 // gabriel 21072023
 
 include_once('../head.php');
@@ -8,6 +9,13 @@ $usuarios = buscaToken();
 
 ?>
 
+<!doctype html>
+<html lang="pt-BR">
+<head>
+
+    <?php include_once ROOT . "/vendor/head_css.php"; ?>
+
+</head>
 
 <body class="bg-transparent">
     <div class="container" style="margin-top:10px;margin-bottom:100px;">
@@ -166,6 +174,10 @@ $usuarios = buscaToken();
         </div>
     </div>
 
+<!-- LOCAL PARA COLOCAR OS JS -->
+
+<?php include_once ROOT . "/vendor/footer_js.php"; ?>
+
     <script>
           $(document).on('click', 'button[data-target="#excluirModal"]', function () {
             var idUsuario = $(this).attr("data-idUsuario");
@@ -189,6 +201,8 @@ $usuarios = buscaToken();
             $('#testarModal').modal('show');
         }
     </script>
+
+<!-- LOCAL PARA COLOCAR OS JS -FIM -->
 
 </body>
 

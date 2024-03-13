@@ -1,4 +1,5 @@
 <?php
+// lucas 120320204 id884 bootstrap local - alterado head
 
 include_once('../head.php');
 include_once('../database/token.php');
@@ -31,6 +32,14 @@ $image_url = 'https://chart.googleapis.com/chart?cht=qr&chs=300x300&chl=' . $tex
 
 ?>
 
+<!doctype html>
+<html lang="pt-BR">
+<head>
+
+    <?php include_once ROOT . "/vendor/head_css.php"; ?>
+
+</head>
+
 <body class="bg-transparent">
     <div class="container bg-white" style="margin-top:50px;width:600px;">
 
@@ -53,6 +62,12 @@ $image_url = 'https://chart.googleapis.com/chart?cht=qr&chs=300x300&chl=' . $tex
             </form>
         </div>
     </div>
+
+<!-- LOCAL PARA COLOCAR OS JS -->
+
+<?php include_once ROOT . "/vendor/footer_js.php"; ?>
+
+<!-- LOCAL PARA COLOCAR OS JS -FIM -->
 
 </body>
 
